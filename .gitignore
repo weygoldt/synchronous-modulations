@@ -1,6 +1,7 @@
 env/
 efishdata/
 efishdata-local/
+former_efishdata-local/
 preprocessing_output/
 wavetracker/
 sort_me/
