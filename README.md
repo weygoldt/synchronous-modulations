@@ -66,9 +66,9 @@ After setting all paths and parameters the preprocessing can be executed by runn
 
 The algorithm to detect synchronous modulation is based on a rolling window cross-covariance between every possible pair of frequency traces bandpass filtered to two timescales. In total, the frequency trace pair is filtered three times. Two narrow bandpass filters extract slow and fast modulations on the timescales relevant to synchronous modulations. Sliding window cross-covariances are computed for each pair of the two bandpass filtered track pairs. Only when the cross-covariances cross a threshold on both time scales and event is detected. For a visualization of the alhorithm, see chapter "Event detection" on the [conference poster](poster/main.pdf). A third, broader bandpass filter is applied remove the zero-frequency component, i.e. scale both tracks to zero for visual inspection on the matplotlib gui interface. 
 
-<object data="/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf">Download PDF</a>.</p>
+<object data="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)" type="application/pdf" width="700px" height="700px">
+    <embed src="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)">Download PDF</a>.</p>
     </embed>
 </object>
 
