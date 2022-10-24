@@ -6,7 +6,6 @@ This protocol is a brief overview of the workflow of
   - [Preprocessing](#preprocessing)
   - [Event detection](#event-detection)
   - [Data extraction](#data-extraction)
-  - [Plotting results](#plotting-results)
 
 
 ## Reproducing the environment
@@ -66,18 +65,17 @@ After setting all paths and parameters the preprocessing can be executed by runn
 
 The algorithm to detect synchronous modulation is based on a rolling window cross-covariance between every possible pair of frequency traces bandpass filtered to two timescales. In total, the frequency trace pair is filtered three times. Two narrow bandpass filters extract slow and fast modulations on the timescales relevant to synchronous modulations. Sliding window cross-covariances are computed for each pair of the two bandpass filtered track pairs. Only when the cross-covariances cross a threshold on both time scales and event is detected. For a visualization of the alhorithm, see chapter "Event detection" on the [conference poster](poster/main.pdf). A third, broader bandpass filter is applied remove the zero-frequency component, i.e. scale both tracks to zero for visual inspection on the matplotlib gui interface. 
 
-<object data="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)" type="application/pdf" width="700px" height="700px">
-    <embed src="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="[/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf](https://raw.githubusercontent.com/weygoldt/syncmod-analysis/main/poster/figs/CovDetector_backend_ids_26788_26789_index_0.pdf)">Download PDF</a>.</p>
-    </embed>
-</object>
-
 If the covariance threshold is crossed on both bandpass filter scales, a matplotlib interactive plot is opened presenting the detected event. A terminal interface now allows for manual validation and marking the onset and offset, as well as the initiator of the event. Events can also be connected if a single event is detected twice. After validating all detected events manually, the user is asked to confirm saving the output to disk.
 
 All relevant settings of the event detector (e.g. bandpass cutoffs, cross covariance lags, etc.) can be adjusted in a [configuration file](/covdetector/covdetector_conf.yml).
 
-## Data extraction
+## Data extraction & analysis
 
 The fish positions on the grid where computed and processed using the coustom-written [gridtools](https://github.com/weygoldt/gridtools) package. Fish positions where estimated using triangulation between 6 electrodes of the highest power of the individuals EOD$f$. Position preprocessing included three filter steps. First, a velocity threshold was established, to reduce unrealistic jumps in position that would have required velocities that probably (not tested!) exceed the maximum speed of an individual. As a second step, a median filter was applied to remove jitter on a small spatial scale. Since this was not able to remove all sudden jumps, a Savitzky Golay filter was applied to the position tracks. The exploration of parameters that lead to the preprocessing steps used here can be explored using a [jupyter notebook](/demos/position_preprocessing_explorer.ipynb) written for this purpose. Position preprocessing, as well as other preprocessing parameters, such as interpolation of positions and tracked frequencies where conducted using the [datacleaner](https://github.com/weygoldt/gridtools/blob/master/gridtools/datacleaner_conf.yml) configuration file as part of the gridtools package.
 
-## Plotting results
+Using the position tracks of individual fish I analyzed the movements of synchronously modulating pairs of fish further. Whether or not two individuals approach each other is determined by their relative velocities. Which of the two individuals approaches whom can be determined by the relative movement trajectory. If one fish aims towards the other while the distance decreases, this individual is the approaching one.
+
+To be able to detect *physical interactions* in a broad sense as distinct events, I constructed a cost function that includes the relative velocities, heading trajectories and proximity of two synchronously modulating individuals. The cost function peaks where distances are small, fish approach each other fast, and if the heading is aimed towards each other. This cost function is now implemented as the method `gridtools.utils.find_interactions` in the gridtools package. The code leading to the cost function as well as the function incorporating it is illustrated in this [demo](/demos/relative_heading_angle_explorer.ipynb).
+
+All code for further data extraction, e.g. of kernel density estimates, as well as plotting the resulting data is included in the [analysis](/analysis/) directory.
+The resulting plots as well as a brief description is illustrated on the [poster](/poster/main.pdf) of this project.
