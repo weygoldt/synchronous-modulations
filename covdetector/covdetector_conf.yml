@@ -42,7 +42,8 @@ swxcov_bin_duration: 120
 # sliding window cross-covariance lags in seconds
 swxcov_lags: 10
 
-# cross covariance step
+# cross covariance step, i.e. how many data points are skipped before the cross-
+# covariance is recalculated
 step: 6
 
 # sliding window cross-covarinace peak prominence threshold for both filters
