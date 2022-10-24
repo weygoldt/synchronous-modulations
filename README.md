@@ -1,4 +1,4 @@
-# Synchronized EODf modulations in the weakly electric fish *Apteronotus leptorynchus*
+# [Synchronized EODf modulations](https://youtu.be/ihDTMcn7LWM) in the weakly electric fish *Apteronotus leptorynchus*
 
 This protocol is a brief overview of the workflow of 
 
@@ -64,6 +64,14 @@ After setting all paths and parameters the preprocessing can be executed by runn
 
 ## Event detection
 
+The algorithm to detect synchronous modulation is based on a rolling window cross covariance between every possible pair of frequency traces bandpass filtered to two timescales. In total, the frequency trace pair is filtered three times. Two narrow bandpass filters extract slow and fast modulations on the timescales relevant to synchronous modulations. Sliding window cross-covariances are computed for each pair of the two bandpass filtered track pairs. Only when the cross-covariances cross a threshold on both time scales and event is detected. For a visualization of the alhorithm, see chapter "Event detection" on the [conference poster](poster/main.pdf). A third, broader bandpass filter is applied remove the zero-frequency component, i.e. scale both tracks to zero for visual inspection on the matplotlib gui interface. 
+
+If the covariance threshold is crossed on both bandpass filter scales, a matplotlib interactive plot is opened presenting the detected event. A terminal interface now allows for manual validation and marking the onset and offset, as well as the initiator of the event. Events can also be connected if a single event is detected twice. After validating all detected events manually, the user is asked to confirm saving the output to disk.
+
+All relevant settings of the event detector (e.g. bandpass cutoffs, cross covariance lags, etc.) can be adjusted in a [configuration file](/covdetector/covdetector_conf.yml).
+
 ## Data extraction
+
+The fish positions on the grid where computed and processed using the coustom-written [gridtools](https://github.com/weygoldt/gridtools) package. Fish positions where estimated using triangulation between 6 electrodes of the highest power of the individuals EOD$f$. Position preprocessing included three filter steps. First, a velocity threshold was established, to reduce unrealistic jumps in position that would have required velocities that probably (not tested!) exceed the maximum speed of an individual. As a second step, a median filter was applied to remove jitter on a small spatial scale. Since this was not able to remove all sudden jumps, a Savitzky Golay filter was applied to the position tracks. The exploration of parameters that lead to the preprocessing steps used here can be explored using a [jupyter notebook](/demos/position_preprocessing_explorer.ipynb) written for this purpose. Position preprocessing, as well as other preprocessing parameters, such as interpolation of positions and tracked frequencies where conducted using the [datacleaner](https://github.com/weygoldt/gridtools/blob/master/gridtools/datacleaner_conf.yml) configuration file as part of the gridtools package.
 
 ## Plotting results

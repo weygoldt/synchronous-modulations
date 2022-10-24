@@ -1,0 +1,12 @@
+﻿Workflow to test the setup:
+- Make backups
+- Track only interesting tracks
+	finished: 
+	- 2016-04-18-19_22
+	- 2016-04-20-18_49
+	- 2016-04-16-18_45
+	- 2016-04-16-18_45 But no temp + lux available
+
+- Run the datacleaner to a new output dir
+- Try to finish Q10 norm function
+- Re-write covariance detector
