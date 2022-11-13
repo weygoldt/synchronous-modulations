@@ -1,21 +1,21 @@
 import datetime
 import os
 
-import cmocean
+# import cmocean
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
 import plottools.colors as c
 import seaborn as sns
-from cmocean import cm
+from cmocean import cm, tools
 from matplotlib.colors import ListedColormap
 
 
 def PlotStyle(darkmode=False):
     class s:
 
-        lightcmap = cmocean.tools.lighten(cmocean.cm.haline, 0.8)
+        lightcmap = tools.lighten(cm.haline, 0.8)
         specmap = sns.color_palette("Spectral_r", as_cmap=True)
         colors = c.colors_muted
         id1_color = c.lighter(colors["orange"], 0.75)
@@ -392,7 +392,7 @@ def PlotStyle(darkmode=False):
 
     # for eventstats plot
 
-    clrs = mpl.cm.get_cmap(cmocean.cm.haline)
+    clrs = mpl.cm.get_cmap(cm.haline)
     c1, c2, c3 = clrs(0.2), clrs(0.6), clrs(0.8)
 
     c1 = "#7D96B0"
