@@ -8,9 +8,9 @@ This protocol is a brief overview of the workflow of
   - [Data extraction](#data-extraction)
 
 
-## Reproducing the environment
+## Reproducing the virtual environment
 
-To reproduce the environment, install all nessecary Python 3.10.4 packages:
+To reproduce the virtual environment, install all nessecary Python 3.10.4 packages:
 
 ```sh
 # clone repository
