@@ -1,4 +1,4 @@
-# Own stuff
+﻿# Own stuff
 env/
 efishdata/
 efishdata-local/
@@ -12,6 +12,7 @@ teufel-antrag/
 processed_data/
 trash/
 *.idea
+datacleaner-test/
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:

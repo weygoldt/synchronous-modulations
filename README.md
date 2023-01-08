@@ -1,8 +1,8 @@
 # [Synchronized EODf modulations](https://youtu.be/ihDTMcn7LWM) in the weakly electric fish *Apteronotus leptorynchus*
 
-This protocol is a brief overview of the workflow of 
+This protocol is a brief overview of the workflow of
 
-  - [Reproducing the environment](#reproducing-the-environment)
+  - [Reproducing the virtual environment](#reproducing-the-environment)
   - [Preprocessing](#preprocessing)
   - [Event detection](#event-detection)
   - [Data extraction](#data-extraction)
@@ -35,7 +35,7 @@ The data used in this analysis was previously tracked using the [wavetracker](ht
 
 - Create a directory for the processed data
 - Fill missing powers in the 'sign_v.npy' (on the original data!) that resulted by manually tracking with the gui and creates a backup of the old powers dataset `sign_v_backup.npy` in the data source directory.
-- Load the hobologger file and extracts data for each seperate recording. 
+- Load the hobologger file and extracts data for each seperate recording.
 - Remove all unassigned frequencies from the dataset.
 - Remove tracks below a certain duration threshold.
 - Remove tracks below a certain tracking performance threshold.
@@ -63,7 +63,7 @@ After setting all paths and parameters the preprocessing can be executed by runn
 
 ## Event detection
 
-The algorithm to detect synchronous modulation is based on a rolling window cross-covariance between every possible pair of frequency traces bandpass filtered to two timescales. In total, the frequency trace pair is filtered three times. Two narrow bandpass filters extract slow and fast modulations on the timescales relevant to synchronous modulations. Sliding window cross-covariances are computed for each pair of the two bandpass filtered track pairs. Only when the cross-covariances cross a threshold on both time scales and event is detected. For a visualization of the alhorithm, see chapter "Event detection" on the [conference poster](poster/main.pdf). A third, broader bandpass filter is applied remove the zero-frequency component, i.e. scale both tracks to zero for visual inspection on the matplotlib gui interface. 
+The algorithm to detect synchronous modulation is based on a rolling window cross-covariance between every possible pair of frequency traces bandpass filtered to two timescales. In total, the frequency trace pair is filtered three times. Two narrow bandpass filters extract slow and fast modulations on the timescales relevant to synchronous modulations. Sliding window cross-covariances are computed for each pair of the two bandpass filtered track pairs. Only when the cross-covariances cross a threshold on both time scales and event is detected. For a visualization of the alhorithm, see chapter "Event detection" on the [conference poster](poster/main.pdf). A third, broader bandpass filter is applied remove the zero-frequency component, i.e. scale both tracks to zero for visual inspection on the matplotlib gui interface.
 
 If the covariance threshold is crossed on both bandpass filter scales, a matplotlib interactive plot is opened presenting the detected event. A terminal interface now allows for manual validation and marking the onset and offset, as well as the initiator of the event. Events can also be connected if a single event is detected twice. After validating all detected events manually, the user is asked to confirm saving the output to disk.
 

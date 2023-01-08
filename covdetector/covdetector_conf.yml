@@ -1,3 +1,7 @@
+###############################################################################
+#----- Change these parameters to the dataset of choice -----------------------
+###############################################################################
+
 # settings determine what datafixer tries to do
 
 dry_run: True
@@ -20,8 +24,13 @@ exclude:
   - "2016-04-09-22_25"
   - "2016-04-09-22_25-postersprint"
 
+# The opposite: If provided, only recordings specified here are analyzed.
 include_only:
   - "2016-04-09-22_25"
+
+###############################################################################
+#----- Only change these parameters if you know what youre doing! -------------
+###############################################################################
 
 track_rate: 3 # sampling rate of wavetracker
 

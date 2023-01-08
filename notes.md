@@ -11,17 +11,5 @@ Gridtools
 - Instead of default VScode look at editor shell variable to use default editor of every system
 
 Analysis
-- Reproduce venv instead environment
-- remove trash and .idea from git repo
-- Put termcolors as feature in gridtools package to not have them in each folder
-- Covdetector documentation is missing
-- Covdetector documenation including the temp file etc.
-- make plotstyle and termcolors in just one folder
-- Remove notebook.md
-- Remove trash
-- Spatial initiator must go
 - hobologger coNverter
-- Maybe plotstyle in root? import ..plotstyle?
 
-General Ideas
-- Add verbosity levels
