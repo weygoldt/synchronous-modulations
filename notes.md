@@ -9,7 +9,3 @@ Gridtools
 - Put headings between functions to sort them in a better way
 - Look at list join function
 - Instead of default VScode look at editor shell variable to use default editor of every system
-
-Analysis
-- hobologger coNverter
-
