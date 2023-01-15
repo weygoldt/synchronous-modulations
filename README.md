@@ -22,7 +22,7 @@ git clone https://github.com/weygoldt/syncmod-analysis.git
 cd syncmod-analysis
 
 # create virtual environment with pythons venv
-venv create env
+python -m venv create env
 
 # install requirements
 pip install -r requirements.txt
