@@ -1,5 +1,7 @@
 # [Synchronized EODf modulations](https://youtu.be/ihDTMcn7LWM) in the weakly electric fish *Apteronotus leptorynchus*
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ihDTMcn7LWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 This protocol is a brief overview of the workflow of
 
   - [Reproducing the virtual environment](#reproducing-the-environment)
