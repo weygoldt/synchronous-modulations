@@ -1,6 +1,6 @@
-# [Synchronized EODf modulations](https://youtu.be/ihDTMcn7LWM) in the weakly electric fish *Apteronotus leptorynchus*
+# Synchronized EODf modulations in the weakly electric fish *Apteronotus leptorynchus*
 
-[![Video of interacting fish](https://img.youtube.com/vi/ihDTMcn7LWM/0.jpg)](https://www.youtube.com/watch?v=ihDTMcn7LWM) 
+Whatch a [video](https://www.youtube.com/watch?v=ihDTMcn7LWM) of fish interacting during synchronous modulations of their electric field. 
 
 This protocol is a brief overview of the workflow of
 
