@@ -1,4 +1,6 @@
-# [Synchronized EODf modulations](https://youtu.be/ihDTMcn7LWM) in the weakly electric fish *Apteronotus leptorynchus*
+# Synchronized EODf modulations in the weakly electric fish *Apteronotus leptorynchus*
+
+Whatch a [video](https://www.youtube.com/watch?v=ihDTMcn7LWM) of fish interacting during synchronous modulations of their electric field. 
 
 This protocol is a brief overview of the workflow of
 
@@ -20,7 +22,7 @@ git clone https://github.com/weygoldt/syncmod-analysis.git
 cd syncmod-analysis
 
 # create virtual environment with pythons venv
-venv create env
+python -m venv create env
 
 # install requirements
 pip install -r requirements.txt
